@@ -19,4 +19,10 @@ func main() {
 	add(p, q)
 	add(a, b)
 	add(p, a)
+
+	if a > 18 {
+		l := 10000
+		fmt.Println("This is a if block")
+		fmt.Println("This print", l, " Value")
+	}
 }
