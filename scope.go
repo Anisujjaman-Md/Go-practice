@@ -4,7 +4,7 @@ import "example.com/mathlib"
 
 var (
 	a = 20
-	b = 30
+	b = 40
 )
 
 func main() {
