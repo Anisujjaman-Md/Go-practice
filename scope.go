@@ -25,3 +25,7 @@ func main() {
 func printRes(res int) {
 	fmt.Println("This is Final Result", res)
 }
+
+func init() {
+	fmt.Println("This is init function")
+}
