@@ -2,46 +2,49 @@ package main
 
 import (
 	"fmt"
-
-	"example.com/mathlib"
 )
 
-var (
-	a = 20
-	b = 40
-)
+func add(x, y int) int {
+	z := x + y
+	fmt.Println(z)
+	return z
+}
 
-func addTwoNumber(x int, y int) {
-	res := x + y
-	printRes(res)
+func div(p, q int) int {
+	r := p / q
+	fmt.Println(r)
+	return r
+}
+
+func PrintSomething(result int) {
+	fmt.Println("The Output:", result)
+}
+
+func ExampleOfFuntionAsParemeter(a, b int, result func(e, f int) int) {
+	result(a, b)
+}
+
+func ExampleOfFuntionReturnOfAFunction() func(x, y int) int {
+	return add
+}
+
+// Higher-order function: accepts a function and returns another function
+func ExampleOfBoth(a, b int, operation func(int, int) int) func(int) {
+	return func(result int) {
+		PrintSomething(operation(a, b))
+	}
 }
 
 func main() {
-	mathlib.Add(a, b)
-	addTwoNumber(a, b)
+	ExampleOfFuntionAsParemeter(7, 8, add)
+	ExampleOfFuntionAsParemeter(70, 10, div)
 
-	//IIFE anonymous func
+	res := ExampleOfFuntionReturnOfAFunction()
 
-	func(a, b int) {
-		k := a + b
-		fmt.Println(k)
-	}(1, 2)
+	res(1, 2)
 
-	//Noob Function
+	printFunc := ExampleOfBoth(3, 5, add) // Returns a function
 
-	mul := func(c, d int) {
-		l := c * d
-		fmt.Println(l)
-	}
-
-	mul(10, 2)
-
-}
-
-func printRes(res int) {
-	fmt.Println("This is Final Result", res)
-}
-
-func init() {
-	fmt.Println("This is init function")
+	// Call the returned function with any int (not used)
+	printFunc(0)
 }
