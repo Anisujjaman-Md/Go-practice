@@ -20,10 +20,12 @@ func PrintSomething(result int) {
 	fmt.Println("The Output:", result)
 }
 
+// Higher-order function: accepts a function
 func ExampleOfFuntionAsParemeter(a, b int, result func(e, f int) int) {
 	result(a, b)
 }
 
+// Higher-order function: returns a function
 func ExampleOfFuntionReturnOfAFunction() func(x, y int) int {
 	return add
 }
