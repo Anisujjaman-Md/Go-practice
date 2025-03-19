@@ -45,7 +45,7 @@ func main() {
 
 	res(1, 2)
 
-	printFunc := ExampleOfBoth(3, 5, add) // Returns a function
+	printFunc := ExampleOfBoth(3, 5, add)
 
 	// Call the returned function with any int (not used)
 	printFunc(0)
